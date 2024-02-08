@@ -940,7 +940,22 @@ print("hello world!")
 <details>
   <summary>Spring Web MVC의 Dispatcher Servlet의 동작 원리에 대해서 간단히 설명해주세요.</summary>
   </br>
-  <p></p>
+  <p>
+Spring Web MVC의 핵심 구성 요소인 Dispatcher Servlet은 Spring MVC의 프론트 컨트롤러(Front Controller) 패턴을 구현합니다. 이 패턴은 모든 클라이언트 요청을 단일 진입 지점을 통해 받고 적절한 리소스로 요청을 전달하는 역할을 합니다. Dispatcher Servlet의 동작 원리는 다음과 같이 간단히 설명할 수 있습니다:
+
+클라이언트 요청 수신: 모든 HTTP 요청은 먼저 Dispatcher Servlet에 도달합니다. 이는 web.xml에 설정되어 있거나, Spring Boot를 사용할 경우 자동으로 설정됩니다.
+
+핸들러 매핑(Handler Mapping) 조회: Dispatcher Servlet은 요청 URL을 분석하여 어떤 컨트롤러가 요청을 처리할지 결정하기 위해 핸들러 매핑을 조회합니다.
+
+핸들러 실행: 적절한 컨트롤러가 선택되면, Dispatcher Servlet은 해당 컨트롤러의 메서드를 실행합니다. 컨트롤러는 비즈니스 로직을 처리하고, 모델(Model)을 생성하며, 뷰 이름(View Name)을 반환합니다.
+
+뷰 리졸버(View Resolver) 조회: 컨트롤러가 반환한 뷰 이름을 기반으로, Dispatcher Servlet은 뷰 리졸버를 사용하여 실제 뷰 객체를 찾습니다. 뷰 리졸버는 뷰 이름을 뷰 객체로 매핑하는 역할을 합니다.
+
+뷰 렌더링: 뷰 객체가 결정되면, Dispatcher Servlet은 모델 데이터를 뷰에 전달하고, 뷰를 렌더링합니다. 렌더링된 뷰는 클라이언트에게 응답으로 보내집니다.
+
+예외 처리: 요청 처리 중에 예외가 발생하면, Dispatcher Servlet은 구성된 예외 처리기를 사용하여 예외를 처리합니다.
+
+이 과정을 통해 Dispatcher Servlet은 Spring Web MVC 애플리케이션에서 중앙 집중식으로 요청을 관리하고, 컨트롤러 선택, 뷰 렌더링, 예외 처리 등의 과정을 효율적으로 조정합니다.</p>
 </details>
 
 <details>
